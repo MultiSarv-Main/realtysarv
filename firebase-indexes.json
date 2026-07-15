@@ -2,7 +2,7 @@
     "indexes": [
         {
             "collectionGroup": "leads",
-            "queryScope": "Collection",
+            "queryScope": "COLLECTION",
             "fields": [
                 {
                     "fieldPath": "companyId",
@@ -20,7 +20,7 @@
         },
         {
             "collectionGroup": "leads",
-            "queryScope": "Collection",
+            "queryScope": "COLLECTION",
             "fields": [
                 {
                     "fieldPath": "companyId",
@@ -38,7 +38,7 @@
         },
         {
             "collectionGroup": "tasks",
-            "queryScope": "Collection",
+            "queryScope": "COLLECTION",
             "fields": [
                 {
                     "fieldPath": "companyId",
@@ -60,7 +60,7 @@
         },
         {
             "collectionGroup": "tasks",
-            "queryScope": "Collection",
+            "queryScope": "COLLECTION",
             "fields": [
                 {
                     "fieldPath": "companyId",
@@ -78,7 +78,7 @@
         },
         {
             "collectionGroup": "bookings",
-            "queryScope": "Collection",
+            "queryScope": "COLLECTION",
             "fields": [
                 {
                     "fieldPath": "companyId",
@@ -96,7 +96,7 @@
         },
         {
             "collectionGroup": "bookings",
-            "queryScope": "Collection",
+            "queryScope": "COLLECTION",
             "fields": [
                 {
                     "fieldPath": "companyId",
@@ -110,7 +110,7 @@
         },
         {
             "collectionGroup": "siteVisits",
-            "queryScope": "Collection",
+            "queryScope": "COLLECTION",
             "fields": [
                 {
                     "fieldPath": "companyId",
@@ -128,7 +128,7 @@
         },
         {
             "collectionGroup": "siteVisits",
-            "queryScope": "Collection",
+            "queryScope": "COLLECTION",
             "fields": [
                 {
                     "fieldPath": "companyId",
@@ -146,7 +146,7 @@
         },
         {
             "collectionGroup": "vouchers",
-            "queryScope": "Collection",
+            "queryScope": "COLLECTION",
             "fields": [
                 {
                     "fieldPath": "companyId",
@@ -160,7 +160,7 @@
         },
         {
             "collectionGroup": "vouchers",
-            "queryScope": "Collection",
+            "queryScope": "COLLECTION",
             "fields": [
                 {
                     "fieldPath": "companyId",
@@ -178,7 +178,7 @@
         },
         {
             "collectionGroup": "users",
-            "queryScope": "Collection",
+            "queryScope": "COLLECTION",
             "fields": [
                 {
                     "fieldPath": "companyId",
@@ -196,7 +196,7 @@
         },
         {
             "collectionGroup": "projects",
-            "queryScope": "Collection",
+            "queryScope": "COLLECTION",
             "fields": [
                 {
                     "fieldPath": "companyId",
@@ -214,7 +214,7 @@
         },
         {
             "collectionGroup": "channelPartners",
-            "queryScope": "Collection",
+            "queryScope": "COLLECTION",
             "fields": [
                 {
                     "fieldPath": "companyId",

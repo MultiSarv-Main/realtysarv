@@ -7,8 +7,11 @@ const app = initializeApp(firebaseConfig);
 export const fdb = getFirestore(app, firebaseConfig.firestoreDatabaseId); /* CRITICAL: The app will break without this line */
 export const auth = getAuth();
 
-// Use Firebase Emulator in development to avoid domain authorization issues
-if (typeof window !== 'undefined' && window.location.hostname === 'localhost') {
+const useEmulators = typeof window !== 'undefined'
+    && import.meta.env.VITE_USE_FIREBASE_EMULATOR === 'true';
+
+// Only connect to local emulators when explicitly enabled.
+if (useEmulators) {
     try {
         if (!auth.emulatorConfig) {
             connectAuthEmulator(auth, 'http://localhost:9099', { disableWarnings: true });
@@ -18,7 +21,6 @@ if (typeof window !== 'undefined' && window.location.hostname === 'localhost') {
     }
 
     try {
-        // Check if emulator is already connected
         const settings = fdb._firestore;
         if (!settings.host?.includes('localhost')) {
             connectFirestoreEmulator(fdb, 'localhost', 8080);

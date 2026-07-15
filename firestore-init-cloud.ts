@@ -5,13 +5,30 @@
  * Run: npx ts-node firestore-init-cloud.ts
  */
 
+import { readFileSync } from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
 import { initializeApp } from 'firebase/app';
 import { getFirestore, writeBatch, collection, doc } from 'firebase/firestore';
-import firebaseConfig from './firebase-applet-config.json' assert { type: 'json' };
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const firebaseConfigPath = path.resolve(__dirname, 'firebase-applet-config.json');
+const firebaseConfig = JSON.parse(readFileSync(firebaseConfigPath, 'utf8')) as {
+    projectId: string;
+    appId: string;
+    apiKey: string;
+    authDomain: string;
+    firestoreDatabaseId: string;
+    storageBucket: string;
+    messagingSenderId: string;
+    measurementId: string;
+};
 
 // Initialize Firebase (LIVE - not emulator)
 const app = initializeApp(firebaseConfig);
-const fdb = getFirestore(app, firebaseConfig.firestoreDatabaseId);
+const targetDatabaseId = process.env.FIRESTORE_DATABASE_ID || '(default)';
+const fdb = getFirestore(app, targetDatabaseId);
 
 // Sample data - same as emulator but for LIVE Firebase
 const FIRESTORE_COLLECTIONS = [
