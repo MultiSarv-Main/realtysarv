@@ -1,0 +1,129 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "System user with role-based access",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "Unique identifier of the user" },
+        "name": { "type": "string", "description": "Full name of the user" },
+        "username": { "type": "string", "description": "Login username" },
+        "email": { "type": "string", "description": "Email address" },
+        "phone": { "type": "string", "description": "Phone number" },
+        "role": { "type": "string", "enum": ["Admin", "Sales", "CRM", "Finance", "SiteEngineer", "Procurement"] },
+        "isActive": { "type": "boolean" }
+      },
+      "required": ["id", "name", "username", "email", "role", "isActive"]
+    },
+    "Lead": {
+      "title": "Lead",
+      "description": "Customer lead details",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "email": { "type": "string" },
+        "phone": { "type": "string" },
+        "leadStatus": { "type": "string" },
+        "leadProject": { "type": "string" },
+        "budget": { "type": "string" },
+        "clientProfile": { "type": "string" },
+        "livingPlace": { "type": "string" },
+        "ownerId": { "type": "string" },
+        "leadDate": { "type": "string" },
+        "bookingStatus": { "type": "string" },
+        "agreementStatus": { "type": "string" },
+        "possessionStatus": { "type": "string" }
+      },
+      "required": ["id", "name", "email", "phone", "leadStatus", "leadProject", "ownerId", "leadDate"]
+    },
+    "Project": {
+      "title": "Project",
+      "description": "Real estate project details",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "companyName": { "type": "string" },
+        "location": { "type": "string" },
+        "reraNumber": { "type": "string" },
+        "projectType": { "type": "string" },
+        "projectStatus": { "type": "string" },
+        "description": { "type": "string" }
+      },
+      "required": ["id", "name", "companyName", "reraNumber"]
+    },
+    "Voucher": {
+      "title": "Voucher",
+      "description": "Financial accounting transaction voucher",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "voucherNumber": { "type": "string" },
+        "date": { "type": "string" },
+        "type": { "type": "string" },
+        "status": { "type": "string" },
+        "narration": { "type": "string" },
+        "totalAmount": { "type": "number" },
+        "projectId": { "type": "string" }
+      },
+      "required": ["id", "voucherNumber", "date", "type", "status", "totalAmount"]
+    },
+    "LedgerAccount": {
+      "title": "LedgerAccount",
+      "description": "Accounting general ledger account mapping",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "code": { "type": "string" },
+        "group": { "type": "string" },
+        "openingBalance": { "type": "number" },
+        "currentBalance": { "type": "number" }
+      },
+      "required": ["id", "name", "code", "group"]
+    },
+    "AuditTrail": {
+      "title": "AuditTrail",
+      "description": "System access and operation ledger history",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "userName": { "type": "string" },
+        "action": { "type": "string" },
+        "module": { "type": "string" },
+        "entityId": { "type": "string" },
+        "timestamp": { "type": "string" },
+        "details": { "type": "string" }
+      },
+      "required": ["id", "userId", "action", "module", "timestamp"]
+    }
+  },
+  "firestore": {
+    "users/{userId}": {
+      "schema": "User",
+      "description": "Collection of all authorized users mapped by their UID"
+    },
+    "leads/{leadId}": {
+      "schema": "Lead",
+      "description": "Sales leads synchronized with Firebase cloud"
+    },
+    "projects/{projectId}": {
+      "schema": "Project",
+      "description": "Project portfolios managed within the ERP"
+    },
+    "vouchers/{voucherId}": {
+      "schema": "Voucher",
+      "description": "Double-entry accounting transaction vouchers"
+    },
+    "ledgerAccounts/{accountId}": {
+      "schema": "LedgerAccount",
+      "description": "General ledger accounts definition"
+    },
+    "auditTrails/{trailId}": {
+      "schema": "AuditTrail",
+      "description": "Cloud audit logs for all security and management operations"
+    }
+  }
+}

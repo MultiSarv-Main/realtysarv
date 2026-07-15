@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --primary-color: #00a884;
+    --dark-bg: #111b21;
+    --medium-bg: #202c33;
+    --light-bg: #2a3942;
+    --text-primary: #e9edef;
+    --text-secondary: #8696a0;
+    --sent-message: #005c4b;
+    --received-message: #202c33;
+    --border-color: #2a3942;
+    --input-bg: #2a3942;
+}
+
+body.light {
+    --dark-bg: #f0f2f5;
+    --medium-bg: #ffffff;
+    --light-bg: #f8f9fa;
+    --text-primary: #111b21;
+    --text-secondary: #54656f;
+    --sent-message: #d9fdd3;
+    --received-message: #ffffff;
+    --border-color: #e9edef;
+    --input-bg: #f0f2f5;
+}
+
+body.realty-theme {
+    --primary-color: #1a73e8;
+    --dark-bg: #ffffff;
+    --medium-bg: #ffffff;
+    --light-bg: #f1f3f4;
+    --text-primary: #202124;
+    --text-secondary: #5f6368;
+    --border-color: #dadce0;
+    --input-bg: #f1f3f4;
+}
+
+body {
+    background-color: white;
+    color: var(--text-primary);
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.custom-scrollbar::-webkit-scrollbar { width: 4px; height: 4px; }
+.custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+.custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(128, 128, 128, 0.2); border-radius: 10px; }
+
+.realty-table th, .realty-table td { padding: 0.5rem 0.75rem; }
+
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fadeIn { animation: fadeIn 0.4s ease-out forwards; }
+
+@keyframes bounceSlow {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+.animate-bounce-slow { animation: bounceSlow 4s ease-in-out infinite; }
+
+.perspective-1000 { perspective: 1000px; }
+.rotate-x-5 { transform: rotateX(5deg); }

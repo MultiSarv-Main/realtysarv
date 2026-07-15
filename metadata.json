@@ -1,0 +1,6 @@
+{
+  "name": "RealtySarvcopy",
+  "description": "An enterprise Customer Relationship Management (CRM) system for real estate professionals featuring direct offline-first IndexedDB replication, role-based controls, cost-breakdown calculations and seamless Firebase Cloud Firestore backup synchronization.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
